@@ -53,21 +53,34 @@ $(function (){
             },
             password: {
                 required: "Ce champ est requis",
+                PWCHECK : "Le mot de passe doit contenir un chiffre, une majuscule, une minuscule et un caractère spécial"
 
             },
             password_conf: {
                 equalTo: "Mots de passe non-identique",
                 required: "Veuillez saisir le mot de passe ue seconde fois"
-            },
-            password: {
-                required: "Mots de passe non-identique",
-                PWCHECK: "mot de passe non-conventionnel"
 
             }
         },
-        submitHandler: function(form){
+        submitHandler: function(form) {
+
             console.log("formulaire envoyé");
-            }
+              var news_letter = 0;
+              if($("#news_letter").is(":checked")){
+                  news_letter =1;
+              }
+
+            $.post(
+
+                "./json/inscription.json.php",
+                {
+                    nom_per : $("#nom_per").val(),
+                    prenom_per : $("#prenom_per").val(),
+                    email_per : $("#email_per").val(),
+                    password : $("#password").val(),
+                    news_letter_per : news_letter
+                }
+            )
         }
-    );
+    });
 });
