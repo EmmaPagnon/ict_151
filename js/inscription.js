@@ -71,8 +71,8 @@ $(function (){
               }
 
             $.post(
-
-                "./json/inscription.json.php",
+                    // passer des arguments avec "?_"
+                "./json/inscription.json.php?_="+Date.now(),
                 {
                     nom_per : $("#nom_per").val(),
                     prenom_per : $("#prenom_per").val(),
