@@ -101,6 +101,10 @@ Class Personne{
                 if($stmt-> rowCount()){
                     $tab = $stmt->fetch();
                     if(password_verify($password,$tab['password_per'])){
+                        $_SESSION['id'] = $tab['id_per'];
+                        $_user_brother_id = $_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'];
+                        $_SESSION['login_string'] = password_hash($tab['password_per'].$_user_brother_id, PASSWORD_DEFAULT);
+                        $_SESSION['email']=$tab['email_per'];
                         echo "ok";
                     }else{
                         echo "ko";
@@ -110,6 +114,22 @@ Class Personne{
                     return false;
                 }
             } catch (Exception $e){
+                return false;
+            }
+        }
+
+
+        public function check_connect()
+        {
+            if(isset($_SESSION['id'],$_SESSION['email'],$_SESSION['loginstring']))
+            {
+                $_user_browser_ip = $_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'];
+                if(password_verify($this->get_password().$_user_browser_ip,$_SESSION['login_string'])){
+                    return true;
+                }else{
+                    return false;
+                }
+            }else{
                 return false;
             }
         }
