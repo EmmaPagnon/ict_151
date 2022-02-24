@@ -10,6 +10,7 @@ require ("./class/Personne.class.php");
 $per = new Personne(6);
 echo $per;
 
+$per->check_login("rasmus.lerdorf@.com", "");
 /*
 $per-> set_nom("Lerdorf");
 $per-> set_prenom("rasmus");

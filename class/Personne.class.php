@@ -59,7 +59,7 @@ Class Personne{
         }
 
         // contrôle si l'email passé en argument existe dans la base de données
-            public function  check_email($email){
+        public function  check_email($email){
             try {
                 $query = "SELECT * FROM t_personnes WHERE email_per= :email LIMIT 1";
                 $stmt = $this-> pdo->prepare($query);
@@ -87,6 +87,32 @@ Class Personne{
 
         }
 
+        public function check_login($email,$password)
+        {
+            try {
+                $query = "SELECT * FROM t_personnes WHERE email_per= :email LIMIT 1";
+                $stmt = $this-> pdo->prepare($query);
+
+                $args = array();
+                $args[':email']= $email;
+
+                $stmt->execute($args);
+
+                if($stmt-> rowCount()){
+                    $tab = $stmt->fetch();
+                    if(password_verify($password,$tab['password_per'])){
+                        echo "ok";
+                    }else{
+                        echo "ko";
+                    }
+
+                }else{
+                    return false;
+                }
+            } catch (Exception $e){
+                return false;
+            }
+        }
 
 
     public function add($tab)
@@ -127,7 +153,7 @@ Class Personne{
     public function __toString(){
             /*.=est un opérateur de concaténation prend la string comme elle est et ajoute ce qui ce trouve après le.=*/
             $str = "<pre>";
-            $str .= "\nnid = ".$this-> get_id();
+            $str .= "\nid = ".$this-> get_id();
             $str .= "\nnom = ".$this-> get_nom();
             $str .= "\nprenom = ".$this-> get_prenom();
             $str .= "\nemail = ".$this-> get_email();
