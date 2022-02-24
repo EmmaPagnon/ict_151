@@ -121,7 +121,7 @@ Class Personne{
 
         public function check_connect()
         {
-            if(isset($_SESSION['id'],$_SESSION['email'],$_SESSION['loginstring']))
+            if(isset($_SESSION['id'],$_SESSION['email'],$_SESSION['login_string']))
             {
                 $_user_browser_ip = $_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'];
                 if(password_verify($this->get_password().$_user_browser_ip,$_SESSION['login_string'])){
