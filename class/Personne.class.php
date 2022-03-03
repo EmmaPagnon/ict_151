@@ -118,7 +118,8 @@ Class Personne{
             }
         }
 
-
+// va controler s'y l'on a bien mis en session ce qu'il fallait
+// controle la pérénité du login
         public function check_connect()
         {
             if(isset($_SESSION['id'],$_SESSION['email'],$_SESSION['login_string']))
