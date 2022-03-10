@@ -3,9 +3,7 @@ require "./config/config.inc.php";
 require WAY ."/includes/head.inc.php";
 
 ?>
-
-
-
+<script src ="./js/inscription.js"></script>
   <div class="row">
     <div class="header">
       <h3>Inscription</h3>

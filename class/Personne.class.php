@@ -159,8 +159,11 @@ Class Personne{
                 $stmt = $this->pdo->prepare($query);
                 $stmt->execute($args);
 
+                return $this->pdo->LastInsertId();
+
             }catch(Exception $e){
-                echo 'Exception reçue : ', $e-> getMessage(), "\n";
+                //echo 'Exception reçue : ', $e-> getMessage(), "\n";
+                return false;
             }
 
 

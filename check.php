@@ -6,7 +6,8 @@ ini_set('display_startup_errors',1);
 error_reporting(E_ALL);
 
 require("./config/config.inc.php");
-require ("./class/Personne.class.php");
+require (WAY."/includes/autoload.inc.php");
+
 $per = new Personne(/*6*/);
 echo $per;
 

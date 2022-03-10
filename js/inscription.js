@@ -71,7 +71,7 @@ $(function (){
               }
 
             $.post(
-                "./json/inscription.json.php",
+
                     // passer des arguments avec "?_"
                 "./json/inscription.json.php?_="+Date.now(),
                 {
@@ -80,6 +80,9 @@ $(function (){
                     email_per : $("#email_per").val(),
                     password : $("#password").val(),
                     news_letter_per : news_letter
+                },
+                function result(data, status){
+                    $("#alert .message").html(data.message.texte);
                 }
             )
         }
