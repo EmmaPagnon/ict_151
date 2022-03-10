@@ -83,6 +83,9 @@ $(function (){
                 },
                 function result(data, status){
                     $("#alert .message").html(data.message.texte);
+                    $("#alert").attr("class","alert");
+                    $("#alert").addClass("alert-"+data.message.type);
+                    $("#alert").css("display","block");
                 }
             )
         }

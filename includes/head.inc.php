@@ -8,8 +8,11 @@
 
         <link rel="stylesheet" href="<?= ROOT ?>/css/global.css">
 
+
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+    <!--à mettre après Jquery le js-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="./js/inscription.js"></script>
 
     <meta charset="UTF-8">
