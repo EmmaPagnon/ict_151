@@ -13,13 +13,37 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
     <!--à mettre après Jquery le js-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="./js/inscription.js"></script>
 
     <meta charset="UTF-8">
     <title>formulaire</title>
 </head>
 <body>
 <div class="container">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="<?= ROOT ?>">ICT-151</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Droits d'accès<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<?= ROOT ?>/droits/attribution_fnc_per.php">Attribution fonctions</a></li>
+                            <li><a href="<?= ROOT ?>/droits/attribution_aut_fnc.php">Attribution autorisations</a></li>
+                            <li><a href="<?= ROOT ?>/droits/fonctions.php">Fonctions</a></li>
+                            <li><a href="<?= ROOT ?>/droits/autorisations.php">Autorisations</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="<?= ROOT ?>/logout.php">Déconnection</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <!--création dans mon header une boite pour les message d'alerte-->
     <div class="alert" id="alert">
         <a href="#" class="close" data-dismiss="alert">&times;</a>

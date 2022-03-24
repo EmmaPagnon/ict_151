@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<?php
+session_start();
+require ("./../config/config.inc.php");
+require_once(WAY . "/includes/head.inc.php");
+?>
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
-    <script src="./js/fonctions.js"></script>
-
-    <meta charset="UTF-8">
-    <title>Fonctions</title>
-</head>
-<body>
-<div class="container">
     <div class="row">
         <div class="header">
             <h3>Fonctions</h3>
@@ -25,26 +15,26 @@
 
 
         <div class="panel-body">
-            <form id="fonction_form" action="add_fonction.json.php" method="post">
+            <form id="fonction_form"  method="post">
                 <!--nom-->
                 <div class="form-group row">
                     <label for="nom_fct" class="col-sm-2 col-form-label">Nom</label>
                     <div class="col-sm-10">
-                        <input  type="text" class="form-control" id="nom_fct" name="nom_fct" placeholder="Nom de la fonction">
+                        <input  type="text" class="form-control" id="nom_fnc" name="nom_fnc" placeholder="Nom de la fonction">
                     </div>
                 </div>
                 <!--Abréviation de la fonction-->
                 <div class="form-group row">
                     <label for="abr_fct" class="col-sm-2 col-form-label">Abreviation de la fonction</label>
                     <div class="col-sm-10">
-                        <input  type="text" class="form-control" id="abr_fct" name="abr_fct" placeholder="Abreviation">
+                        <input  type="text" class="form-control" id="abr_fnc" name="abr_fnc" placeholder="Abreviation">
                     </div>
                 </div>
                 <!--Description de la fonction-->
                 <div class="form-group row">
                     <label for="description_fct" class="col-sm-2 col-form-label">Description de la fonction</label>
                     <div class="col-sm-10">
-                        <input  type="text" class="form-control" id="description_fct" name="description_fct" placeholder="Description">
+                        <input  type="text" class="form-control" id="desc_fnc" name="desc_fnc" placeholder="Description">
                     </div>
                 </div>
 
@@ -65,7 +55,7 @@
         </div>
         <div class="panel-footer">
         </div>
-
+<script src="js/fonctions.js"></script>
     </div>
 </div>
 </body>
