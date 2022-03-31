@@ -48,12 +48,12 @@ $(function (){
                 $.post(
 
                     // passer des arguments avec "?_"
-                    "./json/add_fonction.json.php?_="+Date.now(),
+                    "./json/add_autorisation.json.php?_="+Date.now(),
                     {
                         nom_aut : $("#nom_aut").val(),
                         code_aut : $("#code_aut").val(),
-                        description_aut_admin : $("#description_auto_admin").val(),
-                        description_aut_usr : $("#description_auto_usr").val()
+                        description_aut_admin : $("#description_aut_admin").val(),
+                        description_aut_usr : $("#description_aut_usr").val()
 
                     },
                     function result(data, status){

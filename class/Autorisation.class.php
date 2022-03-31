@@ -4,8 +4,8 @@ class Autorisation
     Private $id_aut;
     Private $nom_aut;
     Private $code_aut;
-    Private $description_aut_admin;
-    Private $description_aut_user;
+
+    Private $desc_aut;
 
     public function __construct($id=null)
     {
@@ -37,7 +37,7 @@ class Autorisation
             $stmt = $this-> pdo->prepare($query);
 
             $args = array();
-            $args[':id_aut']= $this->get_id_fnc();
+            $args[':id_aut']= $this->get_id_aut();
 
             $stmt->execute($args);
 
@@ -46,8 +46,8 @@ class Autorisation
             $tab = $stmt-> fetch();
             $this->set_nom_aut($tab['nom_aut']);
             $this->set_code_aut($tab['code_aut']);
-            $this->set_description_aut_admin($tab['description_aut_admin']);
-            $this->set_description_aut_user($tab['description_aut_user']);
+            $this->set_desc_aut($tab['desc_aut']);
+
 
             return true;
 
@@ -64,16 +64,14 @@ class Autorisation
         $args = array();
         $args['nom_aut'] = $tab['nom_aut'];
         $args['code_aut'] = $tab['code_aut'];
-        $args['description_aut_admin'] = $tab['description_aut_admin'];
-        $args['description_aut_user'] = $tab['description_aut_user'];
+        $args['desc_aut'] = $tab['desc_aut'];
 
 
         try{
             $query = "INSERT INTO t_autorisations SET 
                                             nom_aut = :nom_aut,
                                             code_aut = :code_aut,
-                                            description_aut_admin = :description_aut_admin,
-                                            description_aut_user = :description_aut_user";
+                                            desc_aut = :desc_aut";
 
 
             $stmt = $this->pdo->prepare($query);
@@ -184,33 +182,21 @@ class Autorisation
     /**
      * @return mixed
      */
-    public function get_description_aut_admin()
+    public function get_desc_aut()
     {
-        return $this->description_aut_admin;
+        return $this->desc_aut;
     }
 
     /**
-     * @param mixed $description_aut_admin
+     * @param mixed $desc_aut
      */
-    public function set_description_aut_admin($description_aut_admin)
+    public function set_desc_aut($desc_aut)
     {
-        $this->description_aut_admin = $description_aut_admin;
+        $this->desc_aut = $desc_aut;
     }
 
-    /**
-     * @return mixed
-     */
-    public function get_description_aut_user()
-    {
-        return $this->description_aut_user;
-    }
 
-    /**
-     * @param mixed $description_aut_user
-     */
-    public function set_description_aut_user($description_aut_user)
-    {
-        $this->description_aut_user = $description_aut_user;
-    }
+
+
 
 }
