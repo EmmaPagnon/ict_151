@@ -20,6 +20,8 @@ print_r($_SESSION);
 echo "</pre>";
 
 $per = new Personne($_SESSION['id']);
+
+echo $per;
 if($per->check_connect()){
     echo "Logué";
 }else{

@@ -1,33 +1,23 @@
 <?php
-Class Personne{
+Class Personne EXTENDS Projet{
 
-        private $id;
+        private $id_per;
         private $nom;
         private $prenom;
         private $email;
         private $password;
         private $news_letter;
 
-        private $pdo; // object en php qui permet de se connecter à la base de données
+        //private $pdo; // object en php qui permet de se connecter à la base de données
 
         public function __construct($id=null)
         {
-            $this-> pdo = new PDO('mysql:dbname='.BASE_NAME.';host='.SQL_HOST,
-                                        SQL_USER,
-                                        SQL_PASSWORD,
-                                        array(
-                                            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
-                                            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-                                        )
-            );
-            if($id){
-                $this-> set_id($id);
+            parent::__construct();
+
+           if($id){
+                $this-> set_id_per($id);
                 $this-> init();
             }
-            /**
-             * Initialisation de l'objet (l'id doit être setté)
-             * return boolean
-             */
         }
 
         public function init()
@@ -39,7 +29,7 @@ Class Personne{
                 $stmt = $this-> pdo->prepare($query);
 
                 $args = array();
-                $args[':id_per']= $this->get_id();
+                $args[':id_per']= $this->get_id_per();
 
                 $stmt->execute($args);
 
@@ -177,7 +167,7 @@ Class Personne{
     public function __toString(){
             /*.=est un opérateur de concaténation prend la string comme elle est et ajoute ce qui ce trouve après le.=*/
             $str = "<pre>";
-            $str .= "\nid = ".$this-> get_id();
+            $str .= "\nid = ".$this-> get_id_per();
             $str .= "\nnom = ".$this-> get_nom();
             $str .= "\nprenom = ".$this-> get_prenom();
             $str .= "\nemail = ".$this-> get_email();
@@ -203,24 +193,24 @@ Class Personne{
 
 
     /**
-     * il faut cliquer avec bouton droit generate getteer ans setter
+     * il faut cliquer avec bouton droit generate getter ans setter
      * pour faire les getter et setter de manière automatique
      */
 
     /**
      * @return mixed
      */
-    public function get_id()
+    public function get_id_per()
     {
-        return $this->id;
+        return $this->id_per;
     }
 
     /**
      * @param mixed $id
      */
-    public function set_id($id)
+    public function set_id_per($id)
     {
-        $this->id = $id;
+        $this->id_per = $id;
     }
 
     /**

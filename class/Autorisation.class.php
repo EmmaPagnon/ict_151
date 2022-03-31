@@ -9,23 +9,14 @@ class Autorisation
 
     public function __construct($id=null)
     {
-        $this-> pdo = new PDO('mysql:dbname='.BASE_NAME.';host='.SQL_HOST,
-            SQL_USER,
-            SQL_PASSWORD,
-            array(
-                PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-            )
-        );
+        parent::__construct();
+
         if($id){
-            $this-> set_id($id);
+            $this-> set_id_aut($id);
             $this-> init();
         }
-        /**
-         * Initialisation de l'objet (l'id doit être setté)
-         * return boolean
-         */
     }
+
 
 
     public function init()
