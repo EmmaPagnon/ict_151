@@ -4,11 +4,12 @@ session_start();
 require("./../../config/config.inc.php");
 require_once(WAY . "/includes/autoload.inc.php");
 
-print_r($_POST);
+//print_r($_POST);
 
 $aut = new Autorisation();
 $tab_user= array();
 $tab_admin= array();
+
 $tab_user['code_aut'] = 'USR_'. $_POST['code_aut'];
 $tab_user['nom_aut'] =  $_POST['nom_aut']. " - Utilisateur";
 $tab_user['desc_aut'] =  $_POST['description_aut_usr'];
@@ -21,7 +22,7 @@ if(!$aut->check_code($_POST['code_aut'])){
 
     $id = $aut->add($tab_user);
 
-    //$aut->add($tab_admin);
+    $id=$aut->add($tab_admin);
 
     $aut->set_id_aut($id);
     $aut->init();
