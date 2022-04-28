@@ -45,7 +45,7 @@ require_once(WAY . "/includes/autoload.inc.php");
     </div>
     <div class="panel-footer">
     </div>
-    <script src="/droits/js/login.js"></script>
+    <script src="./js/login.js"></script>
 </div>
 </div>
 </body>
