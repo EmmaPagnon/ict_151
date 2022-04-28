@@ -14,7 +14,7 @@ if($per->check_emails($_POST['email_per'])){
 if($per->check_login($_POST['email_per'],$_POST['password_per'])){
 $tab['response']= true;
 
-// pritn_r($_SESSION)
+// print_r($_SESSION)
 
 }else{
 $tab['message'][type'']

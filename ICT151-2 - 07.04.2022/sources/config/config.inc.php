@@ -12,7 +12,7 @@ ini_set('display_errors', DISPLAY_ERROR);
 /*********************** Chemin d'accès ***************************************/
 //echo getcwd();
 define("WAY","c:/xampp/htdocs/ICT_151/ICT151-2 - 07.04.2022/sources/");
-define("URL","http://localhost/....");
+define("URL","http://localhost/ICT_151/ICT151-2 - 07.04.2022/sources/");
 
 
 /*********************** Base de données **************************************/

@@ -48,11 +48,10 @@ require( WAY ."/includes/autoload.inc.php");
                 foreach($tab_prd AS $prd){
                     echo"<tr>";
                     echo "<td>".$prd['nom_prd']."</td>";
-                    echo "<td>".$prd['categories']."</td>";
+                    echo "<td id=\"cat_prd_".$prd['id_prd']."\" >".$prd['categories']."</td>";
                     
                     echo "<td>";
-                    echo "<select class=\"add_cat\">"; // insérer id_prd ici
-                    echo "<td>".$prd['id_prd']."</td>";
+                    echo "<select class=\"add_cat\" id_prd=\"".$prd['id_prd']."\">";
                     echo "<option value=\"0\">Veuillez choisir</option>";
                     foreach($tab_cat AS $cat){
                         echo "<option value=".$cat['id_cat'].">".$cat['nom_cat']."</option>";
