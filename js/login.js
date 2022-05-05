@@ -1,7 +1,6 @@
 $(function(){
     $("#connexion_form").validate(
         {
-            debug: true,
             rules:{
                 email_per: {
                     required: true,
@@ -18,7 +17,7 @@ $(function(){
             },
             submitHandler: function(form){
                 console.log("test");
-                /*$.post(
+                $.post(
                     "./json/login.json.php?_="+Date(),
                     {
                         email_per:$("#email_per").val(),
@@ -35,7 +34,7 @@ $(function(){
                         }
                     },
                     'json'
-                )*/
+                )
             }
         }
     )

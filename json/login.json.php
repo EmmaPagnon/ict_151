@@ -15,13 +15,15 @@ if($per->check_email($_POST['email_per'])){
         $tab['response']=true;
         //print_r($_SESSION);
     }else{
-        $tab['message']['texte'] = "Combinaison invalide!";
-        $tab['message']['type'] = "danger";
+        $tab['message']['texte'] = "Combinaison valide!";
+        $tab['message']['type'] = "success";
     }
 }else{
     $tab['message']['texte'] = "Combinaison invalide!";
     $tab['message']['type'] = "danger";
 }
+
+
 echo json_encode($tab);
 
 

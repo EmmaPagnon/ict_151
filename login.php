@@ -32,7 +32,7 @@ require_once(WAY . "/includes/autoload.inc.php");
             </div>
             <div class="form-group row">
                 <div class="col-sm-offset-4 col-sm-2">
-                    <input type="submit" class="form-control" id="submit_conf" value="Se connecter">
+                    <button class="form-control" id="submit_conf"> Se connecter </button>
                 </div>
                 <div class="col-sm-2">
                     <input type="reset" class="form-control btn btn-warning" id="reset_conf" value="Annuler">

@@ -10,19 +10,25 @@ $per = new Personne();
 
 $tab=array();
 
-//on check l'email s'il existe on fait pas l'insertion
-if(!$per->check_email($_POST['email_per'])) {
-    $per->add($_POST);
-    $tab['reponse'] = true;
-    $tab['message'] ['texte']= "Bienvenue, utilisez vos identifiants pour vous connecter";
-    $tab['message'] ['type']= "success";
 
+if($per->check_email($_POST['email_per'])){
+    $tab['response']=false;
+    $tab['message']['texte']="Cet email est déjà utilisé !";
+    $tab['message']['type']="danger";
 }else{
-    $tab['reponse'] = false;
-    $tab['message'] ['texte']= "Cet email est déjà utilisé !";
-    $tab['message'] ['type']= "danger";
+    $id = $per->add($_POST);
+    $per->set_id_per($id);
+    if($per->init()){
+        $tab['response'] = true;
+        $tab['message']['texte'] = "Bienvenue, utilisez les identifiants créés pour vous connecter ! <br><a href=\"login.php\">Connexion</a>";
+        $tab['message']['type'] = "success";
 
+    }
 }
+
+
+
+
 
 // va formater le fichier $_POST en json
 echo json_encode($tab);

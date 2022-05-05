@@ -7,6 +7,7 @@ Class Projet{
 
     public function __construct()
     {
+        echo SQL_HOST;
         $this-> pdo = new PDO('mysql:dbname='.BASE_NAME.';host='.SQL_HOST,
             SQL_USER,
             SQL_PASSWORD,
