@@ -19,6 +19,18 @@
 </head>
 <body>
 <div class="container">
+
+    <?php
+    if(isset($_SESSION['id'])){
+        $per= new Personne($_SESSION['id']);
+        if($per->check_connect()){
+
+
+
+
+
+    ?>
+
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -44,8 +56,12 @@
         </div>
     </nav>
 
+    <?php
+        }
+    }
+    ?>
     <!--création dans mon header une boite pour les message d'alerte-->
-    <div class="alert" id="alert">
+    <div class="alert" id="alert" role=alert"">
         <a href="#" class="close" data-dismiss="alert">&times;</a>
         <b class="bold"></b><span class="message"></span>
     </div>

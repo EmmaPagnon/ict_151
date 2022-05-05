@@ -17,7 +17,7 @@ if($per->check_email($_POST['email_per'])){
     $tab['message']['type']="danger";
 }else{
     $id = $per->add($_POST);
-    $per->set_id_per($id);
+    $per->set_id($id);
     if($per->init()){
         $tab['response'] = true;
         $tab['message']['texte'] = "Bienvenue, utilisez les identifiants créés pour vous connecter ! <br><a href=\"login.php\">Connexion</a>";

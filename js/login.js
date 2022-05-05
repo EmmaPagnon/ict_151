@@ -28,15 +28,16 @@ $(function(){
                             console.log(data.message.texte)
                             message(data.message.texte,data.message.type);
                         }
-                        if(data.response===true){
-                            message("logué","success");
-                            window.location.assign("index.php");
+                        if(data.response){
+                            //message("logué","success");
+                            window.location.href= "index.php"
+                            //window.location.assign("index.php");
                         }
                     },
                     'json'
                 )
             }
         }
-    )
+    );
 
 });

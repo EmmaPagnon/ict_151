@@ -95,9 +95,9 @@ Class Personne EXTENDS Projet{
                         $_user_brother_id = $_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'];
                         $_SESSION['login_string'] = password_hash($tab['password_per'].$_user_brother_id, PASSWORD_DEFAULT);
                         $_SESSION['email']=$tab['email_per'];
-                        echo "ok";
+                        return true;
                     }else{
-                        echo "ko";
+                        return false;
                     }
 
                 }else{
