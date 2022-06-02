@@ -20,7 +20,7 @@ if($per->check_email($_POST['email_per'])){
         $tab['message']['type'] = "danger";
     }
 }else{
-    $tab['message']['texte'] = "Combinaison invalide!";
+    $tab['message']['texte'] = "Combinaison invalide!*";
     $tab['message']['type'] = "danger";
 }
 

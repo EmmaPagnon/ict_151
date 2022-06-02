@@ -21,6 +21,7 @@
 <div class="container">
 
     <?php
+    //print_r($_SESSION);
     if(isset($_SESSION['id'])){
         $per= new Personne($_SESSION['id']);
         if($per->check_connect()){

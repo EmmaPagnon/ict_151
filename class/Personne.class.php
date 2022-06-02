@@ -164,6 +164,70 @@ Class Personne EXTENDS Projet{
             $this-> set_password(password_hash($password,PASSWORD_DEFAULT));
         }
 
+
+    public function get_all($order= "nom_per, prenom_per"){
+        try{
+            $query = "Select * From t_personnes ORDER BY ".$order;
+
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+
+        }catch(Exception $e){
+            //echo 'Exception reçue : ', $e-> getMessage(), "\n";
+            return false;
+        }
+
+    }
+
+
+
+    public function add_fnc($id_fnc){
+        try{
+            $query = "Insert into t_fnc_per SET id_per=:id_per, id_fnc=:id_fnc";
+
+            $args = array();
+            $args['id_per'] = $this->get_id_per();
+            $args['id_fnc'] = $id_fnc;
+
+
+            $stmt = $this->pdo->prepare($query);
+            return $stmt->execute($args);
+
+        }catch(Exception $e){
+            //echo 'Exception reçue : ', $e-> getMessage(), "\n";
+            return false;
+        }
+    }
+
+
+
+
+    public function del_fnc($id_fnc){
+        try{
+            $query = "Delete from t_fnc_per Where id_per=:id_per AND id_fnc=:id_fnc";
+
+            $args = array();
+            $args['id_per'] = $this->get_id_per();
+            $args['id_fnc'] = $id_fnc;
+
+
+            $stmt = $this->pdo->prepare($query);
+            return $stmt->execute($args);
+
+        }catch(Exception $e){
+            //echo 'Exception reçue : ', $e-> getMessage(), "\n";
+            return false;
+        }
+
+
+
+    }
+
+
+
+
     public function __toString(){
             /*.=est un opérateur de concaténation prend la string comme elle est et ajoute ce qui ce trouve après le.=*/
             $str = "<pre>";

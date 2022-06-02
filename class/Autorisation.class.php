@@ -1,5 +1,5 @@
 <?php
-class Autorisation
+class Autorisation extends Projet
 {
     Private $id_aut;
     Private $nom_aut;

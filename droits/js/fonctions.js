@@ -1,4 +1,36 @@
 $(function (){
+
+    $(".fnc_per").click(function(){
+        id_per= $(this).attr("id_per")
+        id_fnc= $(this).attr("id_fnc")
+
+        if($(this).is(":checked")){
+
+            active=1;
+
+        }else{
+
+            active=0;
+
+        }
+
+        active= $(this).is(":checked");
+
+            $.post(
+                "./json/add_del_fnc_per.json.php",
+                {
+                    id_per : id_per,
+                    id_fnc : id_fnc,
+                    check:active
+
+                }
+            );
+        console.log("Désactiver/activer fnc_per " +id_fnc+ " " +id_per);
+
+    });
+
+
+
     $("#fonction_form").validate({
             rules: {
 
@@ -57,4 +89,6 @@ $(function (){
             }
         }
     );
+
+
 });

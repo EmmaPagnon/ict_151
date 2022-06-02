@@ -1,5 +1,5 @@
 <?php
-class Fonction
+class Fonction extends Projet
 {
     Private $id_fnc;
     Private $nom_fnc;
@@ -45,6 +45,56 @@ class Fonction
     }
 
 
+
+    public function get_tab_per_all_fnc(){
+        try{
+            $query = "Select * From t_fnc_per ORDER BY id_fnc";
+
+            $stmt = $this->pdo->prepare($query);
+            if($stmt->execute()){
+                $tab = $stmt->fetchAll();
+                //echo "<pre>";
+                //print_r($tab);
+
+                // création du autre tableau pour mieux cherhcher dedans
+
+                $tab_fnc_per = array();
+                foreach($tab as $row){
+                    $tab_fnc_per[$row['id_fnc']][]= $row['id_per'] ; //cette case devient une ligne car deux dimensions dans la premiere case de cette ligne on va mettre l'id de la personne que l'on va récupérer
+                }
+                //print_r($tab_fnc_per);
+                //echo "</pre>";
+
+                return  $tab_fnc_per;
+
+            }else{
+                return false;
+            }
+
+
+        }catch(Exception $e){
+            //echo 'Exception reçue : ', $e-> getMessage(), "\n";
+            return false;
+        }
+
+    }
+
+
+    public function get_all($order= "nom_fnc"){
+        try{
+            $query = "Select * From t_fonctions ORDER BY ".$order;
+
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+
+        }catch(Exception $e){
+            //echo 'Exception reçue : ', $e-> getMessage(), "\n";
+            return false;
+        }
+
+    }
 
     public function add($tab)
     {
