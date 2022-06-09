@@ -25,33 +25,24 @@ $(function(){
 	// Problème 1 et 3
 
     $(".del_cat").click(function(){
-        id_cat= $(this).attr("id_cat")
-        id_prd= $(this).attr("id_prd")
-
-        if($(this).is(":checked")){
-
-            active=1;
-
-        }else{
-
-            active=0;
-
-        }
-
-        active= $(this).is(":checked");
+        console.log("id_prd = " +$(this).attr("id_prd"));
+        console.log("id_cat = " +$(this).attr("id_cat"));
 
         $.post(
             "./json/del_cat_prd.json.php",
             {
-                id_prd : id_prd,
-                id_cat : id_cat,
-                check:active
-
+                id_cat: $(this).attr("id_cat"),
+                id_prd : $(this).attr("id_prd"),
             }
-        );
-        console.log("id_prd " +id_prd);
-        console.log("id_cat " +id_cat);
-
+        ),
+        function(data,status){
+            if(data.response){
+                var id ="cat_prd_"+data.id_prd+"_"+data.id_cat;
+                $("#"+id).css("display", "none");
+                console.log(id);
+            }
+            console.log(data.response)
+            //window.location.reload();
+        }
     });
-    
 });

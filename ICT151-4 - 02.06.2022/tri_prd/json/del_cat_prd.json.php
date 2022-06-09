@@ -5,7 +5,6 @@ require("./../../config/config.inc.php");
 require(WAY . "/includes/autoload.inc.php");
 
 
-$categorie = new Catégorie($_POST['id_cat']);
 
 $produit = new Produit($_POST['id_prd']);
 

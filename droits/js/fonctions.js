@@ -1,30 +1,36 @@
 $(function (){
 
     $(".fnc_per").click(function(){
+        $("#loading").css("display","block");
         id_per= $(this).attr("id_per")
         id_fnc= $(this).attr("id_fnc")
 
         if($(this).is(":checked")){
-
             active=1;
-
         }else{
-
             active=0;
-
         }
-
-        active= $(this).is(":checked");
 
             $.post(
                 "./json/add_del_fnc_per.json.php",
                 {
                     id_per : id_per,
                     id_fnc : id_fnc,
-                    check:active
+                    active : active
+                },
+                function (data,status){
+                    //console.log(data.message.type);
+                    $("#alert").addClass(data.message.type);
+                    $("#alert").css("display","block");
+                    $("#alert .message").html(data.message.texte);
+                    // pour lutter contre le post qui est asynchrone
+                    $("#loading").css("display","none");
 
                 }
-            );
+            ).always(function(){
+               $("#loading").css("display","none");
+            });
+            //$("#loading").css("display","none");
         console.log("Désactiver/activer fnc_per " +id_fnc+ " " +id_per);
 
     });

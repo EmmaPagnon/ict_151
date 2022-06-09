@@ -19,7 +19,9 @@
 </head>
 <body>
 <div class="container">
-
+    <div id="loading">
+        <img src="<?= ROOT ?>/img/loading.gif">
+    </div>
     <?php
     //print_r($_SESSION);
     if(isset($_SESSION['id'])){
